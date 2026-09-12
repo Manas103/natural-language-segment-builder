@@ -1,0 +1,38 @@
+total held-out requests: 200
+matched hand-written definitions: 185 / 200
+ACCURACY: 92.5000%
+
+--- 15 disclosed mismatches ---
+[E-0009] 'Users with at least ten seats.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'with at least ten seats'
+[E-0034] 'Users who opened a marketing email more than four times in the last 7 days.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who opened a marketing email more than four times in the last 7 days'
+[E-0043] "Users who haven't opened a dashboard in the last 30 days."
+    PARSE/VALIDATION ERROR: could not parse clause: "who haven't opened a dashboard in the last 30 days"
+[E-0062] 'Users who opened a marketing email at most nine times in the last 14 days.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who opened a marketing email at most nine times in the last 14 days'
+[E-0083] "Users who haven't churned in the last 30 days."
+    PARSE/VALIDATION ERROR: could not parse clause: "who haven't churned in the last 30 days"
+[E-0099] 'Users who opened a support ticket at least six times.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who opened a support ticket at least six times'
+[E-0110] 'Users on the starter plan and with at least two seats.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'with at least two seats'
+[E-0118] 'Users who churned exactly eight times in the last 30 days and who are currently on a trial.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who churned exactly eight times in the last 30 days'
+[E-0129] 'Users who logged in more than six times in the last 14 days and on the free plan.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who logged in more than six times in the last 14 days'
+[E-0136] 'Users with at least three seats and who are not on the starter plan.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'with at least three seats'
+[E-0146] "Users who are not on a trial and who haven't made a purchase in the last 7 days."
+    PARSE/VALIDATION ERROR: could not parse clause: "who haven't made a purchase in the last 7 days"
+[E-0152] 'Users who logged in at least seven times in the last 90 days or who are currently on a trial.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who logged in at least seven times in the last 90 days'
+[E-0171] 'Users who made a purchase at least seven times in the last 60 days, in the 45-54 age bracket, and who signed up via organic.'
+    PARSE/VALIDATION ERROR: could not parse clause: 'who made a purchase at least seven times in the last 60 days'
+[E-0176] "Users who are not on the starter plan, in the US, and who haven't opened a marketing email in the last 14 days."
+    PARSE/VALIDATION ERROR: could not parse clause: "who haven't opened a marketing email in the last 14 days"
+[E-0197] "Users who haven't made a purchase in the last 60 days or who are not in the IN or in the healthcare industry."
+    PARSE/VALIDATION ERROR: could not parse clause: "who haven't made a purchase in the last 60 days"
+
+threshold: 184 / 200
+EVAL GATE: PASS

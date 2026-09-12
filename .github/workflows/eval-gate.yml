@@ -1,0 +1,30 @@
+name: eval-gate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test-and-eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run test suite
+        run: PYTHONPATH=. python -m pytest tests -q
+
+      - name: Run accuracy eval (fails build if accuracy regresses below 184/200)
+        run: PYTHONPATH=. python scripts/run_accuracy_eval.py --threshold 184
+
+      - name: Run safety eval (fails build if any invalid definition executes)
+        run: PYTHONPATH=. python scripts/run_safety_eval.py

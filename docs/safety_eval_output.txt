@@ -1,0 +1,27 @@
+total deliberately invalid candidates: 150
+
+rejections by mutation kind:
+  and_with_one_child: 7
+  and_with_zero_children: 8
+  candidate_not_a_dict_at_all: 7
+  enum_value_not_in_allowed_set: 7
+  extra_disallowed_field: 8
+  in_operator_without_list: 7
+  invalid_operator_for_type: 8
+  malformed_nested_child: 7
+  missing_required_field: 8
+  negative_count: 8
+  non_dict_root_int: 7
+  non_dict_root_list: 7
+  non_dict_root_none: 7
+  non_dict_root_string: 7
+  not_with_two_children: 7
+  unknown_attribute_field: 8
+  unknown_event_name: 8
+  unknown_node_type: 8
+  wrong_type_value: 8
+  zero_within_days: 8
+
+correctly rejected by the validator: 150 / 150
+INVALID DEFINITIONS THAT EXECUTED: 0
+SAFETY GATE: PASS
