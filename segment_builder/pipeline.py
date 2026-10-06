@@ -10,10 +10,17 @@ from dataclasses import dataclass
 from segment_builder.llm_client import LLMClient
 from segment_builder.store import ProfileStore
 from segment_builder.validator import SegmentValidationError, SegmentValidator, ValidatedSegment
+from segment_builder.vendor_writeback import VendorWriteBackClient, WriteBackReceipt
 
 
 class SegmentBuildError(RuntimeError):
     pass
+
+
+class WriteBackNotConfirmedError(RuntimeError):
+    """Raised if write_back_approved is called on a preview a human has not
+    confirmed. There is no code path from an unconfirmed preview to the
+    vendor API."""
 
 
 @dataclass
@@ -48,3 +55,16 @@ class SegmentBuilderPipeline:
             raise SegmentBuildError(f"request could not be validated: {exc}") from exc
         live_count = self.store.execute_segment(validated)
         return SegmentPreview(request_text=request_text, validated=validated, live_count=live_count)
+
+    def write_back_approved(
+        self, preview: SegmentPreview, vendor_client: VendorWriteBackClient, segment_id: str
+    ) -> WriteBackReceipt:
+        """The governed write-back: only reachable after a human has called
+        preview.confirm(), and only ever writes the profile ids the already-
+        validated, already-counted definition actually matches (recomputed
+        here rather than trusted from the preview, so a stale live_count
+        can never be what gets written)."""
+        if not preview.confirmed:
+            raise WriteBackNotConfirmedError("cannot write back a segment that has not been confirmed")
+        profile_ids = self.store.matching_ids(preview.validated)
+        return vendor_client.write_back(profile_ids, segment_id)

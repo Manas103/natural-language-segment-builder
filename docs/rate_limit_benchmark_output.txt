@@ -1,0 +1,6 @@
+batches sent: 230
+elapsed wall-clock time: 20.56s
+peak requests observed in any real 10s window: 100 (budget: 100)
+server rejected_count (should be 0, client never needed a 429 to stay in budget): 0
+server request_count: 230
+RESULT: PASS

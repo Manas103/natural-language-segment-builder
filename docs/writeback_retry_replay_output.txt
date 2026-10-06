@@ -1,0 +1,10 @@
+confirmed segment profile count: 1285
+unique batches: 65
+injected duplicates: 3 (5% of 65)
+replay stream length (reordered): 68
+server requests received: 68
+server duplicate_rejected_count: 3
+final membership matches expected set exactly: True
+every unique batch applied exactly once: True
+sum of apply counts == unique batch count: True
+RESULT: PASS

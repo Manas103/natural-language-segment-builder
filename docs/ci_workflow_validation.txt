@@ -1,1 +1,1 @@
-YAML OK
+YAML parsed successfully with yaml.safe_load
