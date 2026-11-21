@@ -1,0 +1,17 @@
+loaded 20000 synthetic sales_fact rows
+governed semantic model: 38 metrics and dimensions
+
+in-model questions: 350
+execution match: 271/350 (77.4%)
+transcript-judge pass: 236/350 (67.4%)
+gap: 10.0 points under the transcript-reading judge
+
+out-of-model questions: 60
+correctly refused: 60/60
+
+oracle/judge disagreements: 159
+  q1: exec_match=True judge_pass=False transcript='Broken down by year, the top entry (2024) has distinct products sold 400, plus 2 more row(s).'
+  q2: exec_match=True judge_pass=False transcript='Broken down by month, country, the top entry (1, CA) has profit margin 38.4%, plus 35 more row(s).'
+  q3: exec_match=False judge_pass=True transcript="I can't answer that; it isn't part of the governed semantic model."
+  q7: exec_match=True judge_pass=False transcript='Broken down by quarter, the top entry (1) has discount amount $91,014.77, plus 3 more row(s).'
+  q8: exec_match=True judge_pass=False transcript='Broken down by customer_segment, the top entry (consumer) has return rate 16.8%, plus 2 more row(s).'
